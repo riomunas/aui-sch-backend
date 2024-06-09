@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -30,7 +29,6 @@ public class TransactionEntity {
   private UUID userId;
   private UUID paketId;
   private String snapResponse;
-  @CreationTimestamp
   private OffsetDateTime createdAt;
   private OffsetDateTime updatedAt;
   private OffsetDateTime deletedAt;
@@ -45,6 +43,7 @@ public class TransactionEntity {
     this.userId = userId;
     this.paketId = paketId;
     this.snapResponse = snapResponse;
+    this.createdAt = OffsetDateTime.now();
   }
 
   public OffsetDateTime getDeletedAt() {

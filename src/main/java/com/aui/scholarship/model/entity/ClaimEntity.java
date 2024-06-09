@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -22,7 +21,6 @@ public class ClaimEntity {
   private UUID id;
   private UUID orderId;
   private String status;
-  @CreationTimestamp
   private OffsetDateTime createdAt;
   private OffsetDateTime updatedAt;
   private OffsetDateTime deletedAt;

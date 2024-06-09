@@ -6,9 +6,5 @@
   {
     "name": "java.util.UUID",
     "unsafeAllocated": true
-  },
-  {
-    "name": "org.hibernate.generator.internal.CurrentTimestampGeneration",
-    "allDeclaredConstructors": true
   }
 ]

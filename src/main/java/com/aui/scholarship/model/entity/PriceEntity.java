@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -26,7 +25,6 @@ public class PriceEntity {
   private UUID id;
   private Integer level;
   private BigDecimal price;
-  @CreationTimestamp
   private OffsetDateTime createdAt;
   private OffsetDateTime updatedAt;
 

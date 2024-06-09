@@ -81,6 +81,7 @@ public class UserService {
         .headers(headers -> headers.setBearerAuth(token.accessToken()))
         .exchange((req, res) -> {
           ErrorMessage em = res.bodyTo(new ParameterizedTypeReference<ErrorMessage>() {});
+          log.info("Create user error: {}", em);
           if (res.getStatusCode().is2xxSuccessful()) {
             var createdUsers = restClient.get()
                 .uri("admin/realms/aui-scholarship/users?email={email}", request.email())

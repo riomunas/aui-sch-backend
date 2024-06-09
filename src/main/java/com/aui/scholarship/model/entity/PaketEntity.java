@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -27,7 +26,6 @@ public class PaketEntity {
   private String description;
   private Integer defaultLevel;
   private Integer claimAllowedYear;
-  @CreationTimestamp
   private OffsetDateTime createdAt;
   private OffsetDateTime updatedAt;
 

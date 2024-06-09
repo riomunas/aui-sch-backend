@@ -7,7 +7,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -28,7 +27,6 @@ public class UserEntity {
   @Column(unique = true)
   private String email;
 
-  @CreationTimestamp
   private OffsetDateTime createdAt;
   private OffsetDateTime updatedAt;
 

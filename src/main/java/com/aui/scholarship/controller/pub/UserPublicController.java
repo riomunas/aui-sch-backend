@@ -9,10 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 import static com.aui.scholarship.model.Status.FAILED;
@@ -43,6 +40,7 @@ public class UserPublicController {
 
   @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<ResponseDto> register(@RequestBody RegisterRequest request) {
+    log.info(">> register request: {}", request);
     try {
       return ResponseEntity.ok(new ResponseDto(userService.register(request)));
     } catch (Exception e) {
@@ -52,5 +50,10 @@ public class UserPublicController {
           new ResponseDto(FAILED, e.getMessage())
       );
     }
+  }
+
+  @GetMapping(value = "/hi", produces = MediaType.APPLICATION_JSON_VALUE)
+  public String hi() {
+    return "Hi";
   }
 }
