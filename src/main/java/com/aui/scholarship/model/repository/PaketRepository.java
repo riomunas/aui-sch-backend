@@ -44,7 +44,7 @@ public interface PaketRepository extends JpaRepository<PaketEntity, String> {
           t.settlement_time as date
         from pakets p
         inner join transactions t on t.paket_id = p.id and t.status_code = '200'
-        inner join claims c on c.order_id != t.order_id
+        left join claims c on c.order_id != t.order_id
         inner join prices pstart on pstart."level" = p.default_level
         left join prices pcurrent on pcurrent."level" = least(p.default_level + (extract(year from CURRENT_TIMESTAMP) - extract(year from cast(t.settlement_time as date))),	12)
         where t.user_id = :userId
