@@ -15,6 +15,12 @@ spring:
     generate-ddl: true
     show-sql: ${JPA_SHOW_SQL}
     properties.hibernate.jdbc.time_zone: GMT+7
+  hikari:
+    minimum-idle: "${MINIMUM_IDLE:5}"                    # Jumlah minimal koneksi idle
+    maximum-pool-size: "${MAXIMUM_POOL_SIZE:20}"         # Jumlah maksimal koneksi dalam pool
+    idle-timeout: "${IDLE_TIMEOUT:600000}"               # Timeout koneksi idle (10 menit)
+    max-lifetime: "${MAX_LIFETIME:1800000}"              # Maksimum waktu hidup koneksi (30 menit)
+    connection-timeout: "${CONNECTION_TIMEOUT:30000}"    # Timeout koneksi (30 detik)
   security:
     oauth2.resourceserver.jwt.issuer-uri: ${keycloak.baseUrl}/realms/aui-scholarship
 
@@ -35,3 +41,8 @@ imagekit:
   privateKey: ${IMAGEKIT_PRIVATE_KEY}
   urlEndpoint: ${IMAGEKIT_URL_ENDPOINT}
   urlUploadEndpoint: https://upload.imagekit.io/api/v1/files/upload
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO

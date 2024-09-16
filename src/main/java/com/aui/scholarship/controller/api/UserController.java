@@ -25,7 +25,6 @@ public class UserController {
     this.userService = userService;
   }
 
-//  @PostMapping(value = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<ResponseDto> login(@RequestBody LoginRequest request) {
     log.info(">> login request: {}", request);
     try {
@@ -75,7 +74,6 @@ public class UserController {
   }
 
 
-//  @PostMapping(value = "/register", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<ResponseDto> register(@RequestBody RegisterRequest request) {
     try {
       return ResponseEntity.ok(new ResponseDto(userService.register(request)));

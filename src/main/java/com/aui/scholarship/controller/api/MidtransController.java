@@ -74,7 +74,7 @@ public class MidtransController {
   }
 
   @PostMapping(value = "/cancel/{orderId}",  produces = MediaType.APPLICATION_JSON_VALUE)
-  public void notification(@PathVariable(value = "orderId") String orderId) {
+  public void cancelOrder(@PathVariable(value = "orderId") String orderId) {
     log.info(">>cancel order id : {}", orderId);
     service.cancelOrder(orderId);
   }

@@ -58,6 +58,7 @@ public class MidtransService {
           transaction.setTransactionTime(request.transactionTime());
           transaction.setSettlementTime(request.settlementTime());
           transaction.setUpdatedAt(transaction.getCreatedAt());
+          log.info(">> transaction updated : {}", transaction);
           transactionRepository.save(transaction);
         }
       }
@@ -109,8 +110,6 @@ public class MidtransService {
   }
 
   public void cancelOrder(String orderId) {
-
-
     transactionRepository.findByOrderId(UUID.fromString(orderId))
         .ifPresent(transaction -> {
           //kalau pending baru bisa cancel
